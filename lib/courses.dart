@@ -16,9 +16,11 @@ class DashboardApp extends StatelessWidget {
 class DashboardPage extends StatelessWidget {
   final List<Category> categories = [
     Category('Ages 5-10', Icons.school_rounded, Color.fromARGB(255, 133, 9, 9)),
-    Category('Ages 11-14', Icons.school_outlined, Color.fromARGB(255, 102, 72, 200)),
-    Category('Ages 15-18', Icons.child_care, Color.fromARGB(255, 65, 168, 121)),
-    Category('Ages 18+', Icons.child_care, Color.fromARGB(255, 34, 90, 169)),
+    Category(
+        'Ages 11-14', Icons.school_rounded, Color.fromARGB(255, 133, 9, 9)),
+    Category(
+        'Ages 15-18', Icons.school_rounded, Color.fromARGB(255, 133, 9, 9)),
+    Category('Ages 18+', Icons.school_rounded, Color.fromARGB(255, 133, 9, 9)),
   ];
 
   @override
@@ -35,14 +37,24 @@ class DashboardPage extends StatelessWidget {
           children: [
             Container(
               alignment: Alignment.center,
-              color: Colors.white,
               padding: EdgeInsets.all(16),
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(14),
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.black.withOpacity(0.1),
+                    blurRadius: 4,
+                    spreadRadius: 2,
+                  ),
+                ],
+              ),
               child: Text(
-                'Courses Offered', 
+                'Courses Offered',
                 style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
               ),
             ),
-            SizedBox(height: 16),
+            SizedBox(height: 14),
             Expanded(
               child: GridView.builder(
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
@@ -53,7 +65,18 @@ class DashboardPage extends StatelessWidget {
                 ),
                 itemCount: categories.length,
                 itemBuilder: (BuildContext context, int index) {
-                  return CategoryTile(category: categories[index]);
+                  return GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) =>
+                              CoursesPage(category: categories[index]),
+                        ),
+                      );
+                    },
+                    child: CategoryTile(category: categories[index]),
+                  );
                 },
               ),
             ),
@@ -80,27 +103,45 @@ class CategoryTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
+      elevation: 4,
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
       color: category.color,
-      child: InkWell(
-        onTap: () {
-          // Handle category tap
-        },
-        child: Center(
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Icon(
-                category.iconData,
-                size: 50,
-                color: Colors.white,
-              ),
-              SizedBox(height: 8),
-              Text(
-                category.name,
-                style: TextStyle(fontSize: 16, color: Colors.white),
-              ),
-            ],
-          ),
+      child: Center(
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Icon(
+              category.iconData,
+              size: 50,
+              color: Colors.white,
+            ),
+            SizedBox(height: 8),
+            Text(
+              category.name,
+              style: TextStyle(fontSize: 16, color: Colors.white),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class CoursesPage extends StatelessWidget {
+  final Category category;
+
+  CoursesPage({required this.category});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(category.name),
+      ),
+      body: Center(
+        child: Text(
+          'Courses for ${category.name} will be displayed here.',
+          style: TextStyle(fontSize: 18),
         ),
       ),
     );
