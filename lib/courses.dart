@@ -15,7 +15,8 @@ class DashboardApp extends StatelessWidget {
 
 class DashboardPage extends StatelessWidget {
   final List<Category> categories = [
-    Category('Ages 5-10', Icons.school_rounded, Color.fromARGB(255, 133, 9, 9)),
+    Category('Ages 5-7', Icons.school_rounded, Color.fromARGB(255, 133, 9, 9)),
+    Category('Ages 8-10', Icons.school_rounded, Color.fromARGB(255, 133, 9, 9)),
     Category(
         'Ages 11-14', Icons.school_rounded, Color.fromARGB(255, 133, 9, 9)),
     Category(
