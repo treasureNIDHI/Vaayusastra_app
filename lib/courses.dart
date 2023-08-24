@@ -15,7 +15,8 @@ class DashboardApp extends StatelessWidget {
 
 class DashboardPage extends StatelessWidget {
   final List<Category> categories = [
-    Category('Ages 5-10', Icons.school_rounded, Color.fromARGB(255, 133, 9, 9)),
+    Category('Ages 5-7', Icons.school_rounded, Color.fromARGB(255, 133, 9, 9)),
+    Category('Ages 8-10', Icons.school_rounded, Color.fromARGB(255, 133, 9, 9)),
     Category(
         'Ages 11-14', Icons.school_rounded, Color.fromARGB(255, 133, 9, 9)),
     Category(
@@ -27,12 +28,25 @@ class DashboardPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Courses Offered'),
+        backgroundColor: Color.fromARGB(255, 133, 9, 9),
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back),
+          onPressed: () {
+            Navigator.pop(context);
+          },
+        ),
+        actions: [
+          IconButton(
+            icon: Icon(Icons.account_circle, size: 32),
+            onPressed: () {},
+          ),
+        ],
       ),
       body: Container(
-        color: Colors.blue[100],
+        color: Colors.grey[200],
         padding: EdgeInsets.all(16),
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Container(
