@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+<<<<<<< HEAD
 import 'package:vaayusastra_app/courses.dart';
+=======
+>>>>>>> 8cad9772df3454ed682caaa3939ed5afc2685eeb
 
 class Login extends StatelessWidget {
   Login({super.key});
@@ -69,6 +72,7 @@ class Login extends StatelessWidget {
                           filled: true),
                     )),
                 SizedBox(height: 15),
+<<<<<<< HEAD
 
                 Align(
                     alignment: Alignment.center,
@@ -85,6 +89,19 @@ class Login extends StatelessWidget {
                           );
                           },
 
+=======
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(right: 25),
+                      child: ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                              disabledBackgroundColor:
+                                  Color.fromARGB(200, 136, 13, 30),
+                              backgroundColor: Color.fromARGB(100, 255, 0, 33)),
+                          onPressed: login(),
+>>>>>>> 8cad9772df3454ed682caaa3939ed5afc2685eeb
                           child: Padding(
                             padding: const EdgeInsets.all(12),
                             child: Text(
@@ -93,12 +110,19 @@ class Login extends StatelessWidget {
                                   color: Colors.white,
                                   fontWeight: FontWeight.bold),
                             ),
+<<<<<<< HEAD
                           ))
                 
                       )
                     
                     
 
+=======
+                          )),
+                    )
+                  ],
+                ),
+>>>>>>> 8cad9772df3454ed682caaa3939ed5afc2685eeb
               ],
             ),
           ),
@@ -108,4 +132,8 @@ class Login extends StatelessWidget {
   }
 }
 
+<<<<<<< HEAD
 login() {}
+=======
+login() {}
+>>>>>>> 8cad9772df3454ed682caaa3939ed5afc2685eeb

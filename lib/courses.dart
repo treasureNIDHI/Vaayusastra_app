@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+<<<<<<< HEAD
 import 'package:vaayusastra_app/login.dart';
 
 
+=======
+>>>>>>> 8cad9772df3454ed682caaa3939ed5afc2685eeb
 
 void main() {
   runApp(DashboardApp());
@@ -18,7 +21,12 @@ class DashboardApp extends StatelessWidget {
 
 class DashboardPage extends StatelessWidget {
   final List<Category> categories = [
+<<<<<<< HEAD
     Category('Ages 5-10', Icons.school_rounded, Color.fromARGB(255, 133, 9, 9)),
+=======
+    Category('Ages 5-7', Icons.school_rounded, Color.fromARGB(255, 133, 9, 9)),
+    Category('Ages 8-10', Icons.school_rounded, Color.fromARGB(255, 133, 9, 9)),
+>>>>>>> 8cad9772df3454ed682caaa3939ed5afc2685eeb
     Category(
         'Ages 11-14', Icons.school_rounded, Color.fromARGB(255, 133, 9, 9)),
     Category(
