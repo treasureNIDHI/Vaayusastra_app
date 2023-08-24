@@ -15,13 +15,16 @@ class DashboardApp extends StatelessWidget {
 
 class DashboardPage extends StatelessWidget {
   final List<Category> categories = [
-    Category('Ages 5-7', Icons.school_rounded, Color.fromARGB(255, 133, 9, 9)),
-    Category('Ages 8-10', Icons.school_rounded, Color.fromARGB(255, 133, 9, 9)),
-    Category(
-        'Ages 11-14', Icons.school_rounded, Color.fromARGB(255, 133, 9, 9)),
-    Category(
-        'Ages 15-18', Icons.school_rounded, Color.fromARGB(255, 133, 9, 9)),
-    Category('Ages 18+', Icons.school_rounded, Color.fromARGB(255, 133, 9, 9)),
+    Category('Ages 5-7', AssetImage('assets/img_1.png'),
+        Color.fromARGB(255, 133, 9, 9)),
+    Category('Ages 8-10', AssetImage('assets/img_2.jpg'),
+        Color.fromARGB(255, 133, 9, 9)),
+    Category('Ages 11-14', AssetImage('assets/img_3.jpg'),
+        Color.fromARGB(255, 133, 9, 9)),
+    Category('Ages 15-18', AssetImage('assets/img_4.jpg'),
+        Color.fromARGB(255, 133, 9, 9)),
+    Category('Ages 18+', AssetImage('assets/img_5.jpg'),
+        Color.fromARGB(255, 133, 9, 9)),
   ];
 
   @override
@@ -47,7 +50,7 @@ class DashboardPage extends StatelessWidget {
         padding: EdgeInsets.all(16),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Container(
               alignment: Alignment.center,
@@ -59,13 +62,28 @@ class DashboardPage extends StatelessWidget {
                   BoxShadow(
                     color: Colors.black.withOpacity(0.1),
                     blurRadius: 4,
-                    spreadRadius: 2,
+                    spreadRadius: 4,
                   ),
                 ],
               ),
-              child: Text(
-                'Courses Offered',
-                style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+              child: Center(
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    // Image.asset(
+                    //   'assets/logo.png',
+                    //   height: 50,
+                    // ),
+                    SizedBox(width: 10),
+                    Text(
+                      'Courses Offered',
+                      style: TextStyle(
+                        fontSize: 24,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ),
             SizedBox(height: 14),
@@ -103,10 +121,10 @@ class DashboardPage extends StatelessWidget {
 
 class Category {
   final String name;
-  final IconData iconData;
+  final AssetImage image;
   final Color color;
 
-  Category(this.name, this.iconData, this.color);
+  Category(this.name, this.image, this.color);
 }
 
 class CategoryTile extends StatelessWidget {
@@ -124,15 +142,30 @@ class CategoryTile extends StatelessWidget {
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            Icon(
-              category.iconData,
-              size: 50,
-              color: Colors.white,
+            Container(
+              width: 100,
+              height: 100,
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                color: Colors.white,
+                border: Border.all(
+                  color: Colors.grey[300]!,
+                  width: 3.0,
+                ),
+              ),
+              child: ClipOval(
+                child: Image(
+                  image: category.image,
+                  width: 100,
+                  height: 100,
+                  fit: BoxFit.cover,
+                ),
+              ),
             ),
             SizedBox(height: 8),
             Text(
               category.name,
-              style: TextStyle(fontSize: 16, color: Colors.white),
+              style: TextStyle(fontSize: 16, color: Colors.white, fontWeight: FontWeight.bold),
             ),
           ],
         ),
@@ -155,7 +188,7 @@ class CoursesPage extends StatelessWidget {
       body: Center(
         child: Text(
           'Courses for ${category.name} will be displayed here.',
-          style: TextStyle(fontSize: 18),
+          style: TextStyle(fontSize: 18)
         ),
       ),
     );
