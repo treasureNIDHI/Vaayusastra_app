@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:vaayusastra_app/profile_page.dart';
 
 void main() {
   runApp(DashboardApp());
@@ -41,7 +42,12 @@ class DashboardPage extends StatelessWidget {
         actions: [
           IconButton(
             icon: Icon(Icons.account_circle, size: 32),
-            onPressed: () {},
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => ProfilePage()),
+              );
+            },
           ),
         ],
       ),
@@ -70,10 +76,6 @@ class DashboardPage extends StatelessWidget {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    // Image.asset(
-                    //   'assets/logo.png',
-                    //   height: 50,
-                    // ),
                     SizedBox(width: 10),
                     Text(
                       'Courses Offered',
@@ -150,7 +152,7 @@ class CategoryTile extends StatelessWidget {
                 color: Colors.white,
                 border: Border.all(
                   color: Colors.grey[300]!,
-                  width: 3.0,
+                  width: 4.0,
                 ),
               ),
               child: ClipOval(
@@ -162,10 +164,13 @@ class CategoryTile extends StatelessWidget {
                 ),
               ),
             ),
-            SizedBox(height: 8),
+            SizedBox(height: 12),
             Text(
               category.name,
-              style: TextStyle(fontSize: 16, color: Colors.white, fontWeight: FontWeight.bold),
+              style: TextStyle(
+                  fontSize: 16,
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold),
             ),
           ],
         ),
@@ -186,10 +191,8 @@ class CoursesPage extends StatelessWidget {
         title: Text(category.name),
       ),
       body: Center(
-        child: Text(
-          'Courses for ${category.name} will be displayed here.',
-          style: TextStyle(fontSize: 18)
-        ),
+        child: Text('Courses for ${category.name} will be displayed here.',
+            style: TextStyle(fontSize: 18)),
       ),
     );
   }
