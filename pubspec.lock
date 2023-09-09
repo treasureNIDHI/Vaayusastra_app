@@ -336,6 +336,7 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "0.1.4-beta"
+<<<<<<< HEAD
   win32:
     dependency: transitive
     description:
@@ -352,6 +353,8 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.0.2"
+=======
+>>>>>>> ef968cefdc019b60d2fc2bc54d19d9bd856ef1e4
 sdks:
   dart: ">=3.1.0-185.0.dev <4.0.0"
   flutter: ">=3.10.0"
