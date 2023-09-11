@@ -118,3 +118,10 @@ class MyApp extends StatelessWidget {
     );
   }
 }
+
+// runApp(
+//   ChangeNotifierProvider(
+//     create: (context) => UserProfileState(),
+//     child: MyApp(),
+//   ),
+// );

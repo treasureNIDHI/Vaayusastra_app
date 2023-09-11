@@ -101,9 +101,9 @@
 // }
 
 // login() {}
-
 import 'package:flutter/material.dart';
-import 'package:vaayusastra_app/courses.dart';
+import 'package:vaayusastra_app/loadinganimation.dart';
+// import 'package:vaayusastra_app/courses.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 // import 'package:google_fonts/google_fonts.dart';
@@ -133,7 +133,7 @@ class Login extends StatelessWidget {
       if (responseData['message'] == "Login successful") {
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => DashboardPage()),
+          MaterialPageRoute(builder: (context) => Loading()),
         );
       } else {
         // Show an error message, credentials are incorrect
