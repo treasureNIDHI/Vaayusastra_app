@@ -103,7 +103,7 @@
 // login() {}
 import 'package:flutter/material.dart';
 import 'package:vaayusastra_app/loadinganimation.dart';
-// import 'package:vaayusastra_app/courses.dart';
+import 'package:vaayusastra_app/courses.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 // import 'package:google_fonts/google_fonts.dart';
@@ -227,7 +227,10 @@ class Login extends StatelessWidget {
                       disabledBackgroundColor: Color.fromARGB(200, 136, 13, 30),
                       backgroundColor: Color.fromARGB(100, 255, 0, 33),
                     ),
-                    onPressed: () => login(context),
+                    onPressed: () {
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context) => MyApp()));
+                    },
                     child: Padding(
                       padding: const EdgeInsets.all(12),
                       child: Text(
@@ -249,4 +252,6 @@ class Login extends StatelessWidget {
   }
 }
 
-login() {}
+login(context) {
+  Navigator.push(context, MaterialPageRoute(builder: (context) => MyApp()));
+}
