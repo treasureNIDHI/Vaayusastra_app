@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'fivet0SevenLEsson.dart';
 import 'Eleventofifteenles.dart';
 import 'EighttoTenLesson.dart';
+import 'courseanimation.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -55,7 +56,9 @@ class MyApp extends StatelessWidget {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => fivetoSevenLevel()));
+                                builder: (context) => Courseanimation(
+                                      page: "1",
+                                    )));
                       },
                       child: Container(
                         height: 120,
