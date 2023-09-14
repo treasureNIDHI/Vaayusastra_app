@@ -26,7 +26,7 @@ import 'dart:async';
 import 'package:vaayusastra_app/courses.dart'; // Import the dashboard page
 
 class Loading extends StatelessWidget {
-  const Loading({Key? key});
+  const Loading({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -34,7 +34,8 @@ class Loading extends StatelessWidget {
     Timer(Duration(seconds: 2), () {
       Navigator.pushReplacement(
         context,
-        MaterialPageRoute(builder: (context) => DashboardApp()), // Navigate to the dashboard
+        MaterialPageRoute(
+            builder: (context) => MyApp()), // Navigate to the dashboard
       );
     });
 
@@ -53,5 +54,3 @@ class Loading extends StatelessWidget {
     );
   }
 }
-
-

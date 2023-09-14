@@ -1,45 +1,25 @@
 import 'package:flutter/material.dart';
-import 'package:vaayusastra_app/profile_page.dart';
+import 'fivet0SevenLEsson.dart';
+import 'Eleventofifteenles.dart';
+import 'EighttoTenLesson.dart';
 
-void main() {
-  runApp(DashboardApp());
-}
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
 
-class DashboardApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: DashboardPage(),
-    );
-  }
-}
-
-class DashboardPage extends StatelessWidget {
-  final List<Category> categories = [
-    Category('Ages 5-7', AssetImage('assets/img_1.png'),
-        Color.fromARGB(255, 133, 9, 9)),
-    Category('Ages 8-10', AssetImage('assets/img_2.jpg'),
-        Color.fromARGB(255, 133, 9, 9)),
-    Category('Ages 11-14', AssetImage('assets/img_3.jpg'),
-        Color.fromARGB(255, 133, 9, 9)),
-    Category('Ages 15-18', AssetImage('assets/img_4.jpg'),
-        Color.fromARGB(255, 133, 9, 9)),
-    Category('Ages 18+', AssetImage('assets/img_5.jpg'),
-        Color.fromARGB(255, 133, 9, 9)),
-  ];
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Color.fromARGB(255, 133, 9, 9),
-        leading: IconButton(
-          icon: Icon(Icons.arrow_back),
-          onPressed: () {
-            Navigator.pop(context);
-          },
+      home: SafeArea(
+          child: Scaffold(
+        backgroundColor: Color(0xffFFCBB1),
+        appBar: AppBar(
+          backgroundColor: Color(0xff880D1E),
+          shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.only(
+                  bottomLeft: Radius.circular(20),
+                  bottomRight: Radius.circular(20))),
         ),
+<<<<<<< HEAD
         actions: [
           IconButton(
             icon: Icon(Icons.account_circle, size: 32),
@@ -56,145 +36,299 @@ class DashboardPage extends StatelessWidget {
         color: Colors.grey[200],
         padding: EdgeInsets.all(16),
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
+=======
+        body: Column(
+>>>>>>> 241df0a0ea508fcb1c5057f5edf7edefcdef2073
           children: [
-            Container(
-              alignment: Alignment.center,
-              padding: EdgeInsets.all(16),
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(14),
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.black.withOpacity(0.1),
-                    blurRadius: 4,
-                    spreadRadius: 4,
+            SizedBox(
+              height: 20,
+            ),
+            Center(
+              child: Container(
+                height: 100,
+                width: 300,
+                child: Padding(
+                  padding: const EdgeInsets.only(left: 40, top: 10),
+                  child: Text(
+                    "Courses \n Offered",
+                    style: TextStyle(fontSize: 32, fontWeight: FontWeight.bold),
                   ),
-                ],
+                ),
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(37),
+                    color: Color(0xffFDE8DE)),
               ),
-              child: Center(
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
+            ),
+            SizedBox(
+              height: 60,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                Stack(
+                  fit: StackFit.loose,
+                  clipBehavior: Clip.none,
                   children: [
-                    SizedBox(width: 10),
-                    Text(
-                      'Courses Offered',
-                      style: TextStyle(
-                        fontSize: 24,
-                        fontWeight: FontWeight.bold,
+                    InkWell(
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => fivetoSevenLevel()));
+                      },
+                      child: Container(
+                        height: 120,
+                        width: 145,
+                        decoration: BoxDecoration(
+                          color: Color(0xff960606),
+                          borderRadius: BorderRadius.circular(27),
+                          border:
+                              Border.all(color: Color(0xffffffff), width: 5),
+                        ),
+                        child: Center(
+                          child: Padding(
+                            padding: const EdgeInsets.only(top: 40),
+                            child: Text(
+                              "5-7 AGE",
+                              style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 24,
+                                  fontWeight: FontWeight.bold),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                    Positioned(
+                      top: -35,
+                      left: 25, // Adjust the left position as needed
+                      child: Container(
+                        height: 90,
+                        width: 90,
+                        child: CircleAvatar(
+                          backgroundImage: AssetImage(
+                            "assets/img_1.jpg",
+                          ),
+                          radius: 50, // Adjust the radius as needed
+                        ),
                       ),
                     ),
                   ],
                 ),
+<<<<<<< HEAD
               ),
             ),
             SizedBox(height: 14),
             Expanded(
-              child: GridView.builder(
-                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 2,
-                  mainAxisSpacing: 16,
-                  crossAxisSpacing: 16,
-                  childAspectRatio: 1.5,
+              child: SingleChildScrollView(
+                child: GridView.builder(
+                  shrinkWrap: true,
+                  physics: NeverScrollableScrollPhysics(),
+                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 2,
+                    childAspectRatio: 1.5,
+                  ),
+                  itemCount: categories.length,
+                  itemBuilder: (BuildContext context, int index) {
+                    return GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) =>
+                                CoursesPage(category: categories[index]),
+                          ),
+                        );
+                      },
+                      child: CategoryTile(category: categories[index]),
+                    );
+                  },
                 ),
-                itemCount: categories.length,
-                itemBuilder: (BuildContext context, int index) {
-                  return GestureDetector(
+=======
+                Stack(
+                  fit: StackFit.loose,
+                  clipBehavior: Clip.none,
+                  children: [
+                    InkWell(
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => eigtotenLevel()));
+                      },
+                      child: Container(
+                        height: 120,
+                        width: 145,
+                        decoration: BoxDecoration(
+                          color: Color(0xff960606),
+                          borderRadius: BorderRadius.circular(27),
+                          border:
+                              Border.all(color: Color(0xffffffff), width: 5),
+                        ),
+                        child: Center(
+                          child: Padding(
+                            padding: const EdgeInsets.only(top: 40),
+                            child: Text(
+                              "8-10 AGE",
+                              style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 24,
+                                  fontWeight: FontWeight.bold),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                    Positioned(
+                      top: -50,
+                      left: 25, // Adjust the left position as needed
+                      child: CircleAvatar(
+                        backgroundImage: AssetImage("assets/img_3.jpg"),
+                        radius: 50, // Adjust the radius as needed
+                      ),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+            SizedBox(
+              height: 60,
+            ),
+            Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
+              Stack(
+                fit: StackFit.loose,
+                clipBehavior: Clip.none,
+                children: [
+                  InkWell(
                     onTap: () {
                       Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) =>
-                              CoursesPage(category: categories[index]),
-                        ),
-                      );
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => eigtotenLevel()));
                     },
-                    child: CategoryTile(category: categories[index]),
-                  );
-                },
+                    child: Container(
+                      height: 120,
+                      width: 145,
+                      decoration: BoxDecoration(
+                        color: Color(0xff960606),
+                        borderRadius: BorderRadius.circular(27),
+                        border: Border.all(color: Color(0xffffffff), width: 5),
+                      ),
+                      child: Center(
+                        child: Padding(
+                          padding: const EdgeInsets.only(top: 40),
+                          child: Text(
+                            "8-10 AGE",
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 24,
+                                fontWeight: FontWeight.bold),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                  Positioned(
+                    top: -50,
+                    left: 25, // Adjust the left position as needed
+                    child: CircleAvatar(
+                      backgroundImage: AssetImage("assets/img_4.jpg"),
+                      radius: 50, // Adjust the radius as needed
+                    ),
+                  ),
+                ],
+>>>>>>> 241df0a0ea508fcb1c5057f5edf7edefcdef2073
               ),
+              Stack(
+                fit: StackFit.loose,
+                clipBehavior: Clip.none,
+                children: [
+                  InkWell(
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => EleventofifteenLevel()));
+                    },
+                    child: Container(
+                      height: 120,
+                      width: 145,
+                      decoration: BoxDecoration(
+                        color: Color(0xff960606),
+                        borderRadius: BorderRadius.circular(27),
+                        border: Border.all(color: Color(0xffffffff), width: 5),
+                      ),
+                      child: Center(
+                        child: Padding(
+                          padding: const EdgeInsets.only(top: 40),
+                          child: Text(
+                            "11-14 AGE",
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 24,
+                                fontWeight: FontWeight.bold),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                  Positioned(
+                    top: -50,
+                    left: 25, // Adjust the left position as needed
+                    child: CircleAvatar(
+                      backgroundImage: AssetImage("assets/img_5.jpg"),
+                      radius: 50, // Adjust the radius as needed
+                    ),
+                  ),
+                ],
+              ),
+            ]),
+            SizedBox(height: 60),
+            Stack(
+              fit: StackFit.loose,
+              clipBehavior: Clip.none,
+              children: [
+                Container(
+                  height: 120,
+                  width: 145,
+                  decoration: BoxDecoration(
+                    color: Color(0xff960606),
+                    borderRadius: BorderRadius.circular(27),
+                    border: Border.all(color: Color(0xffffffff), width: 5),
+                  ),
+                  child: Center(
+                    child: Padding(
+                      padding: const EdgeInsets.only(top: 40),
+                      child: Text(
+                        "18+ AGE",
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 24,
+                            fontWeight: FontWeight.bold),
+                      ),
+                    ),
+                  ),
+                ),
+                Positioned(
+                  top: -50,
+                  left: 25, // Adjust the left position as needed
+                  child: CircleAvatar(
+                    backgroundImage: AssetImage("assets/img_5.png"),
+                    radius: 50, // Adjust the radius as needed
+                  ),
+                ),
+              ],
             ),
           ],
         ),
-      ),
+      )),
     );
   }
 }
 
-class Category {
-  final String name;
-  final AssetImage image;
-  final Color color;
 
-  Category(this.name, this.image, this.color);
-}
 
-class CategoryTile extends StatelessWidget {
-  final Category category;
 
-  CategoryTile({required this.category});
 
-  @override
-  Widget build(BuildContext context) {
-    return Card(
-      elevation: 4,
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
-      color: category.color,
-      child: Center(
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Container(
-              width: 100,
-              height: 100,
-              decoration: BoxDecoration(
-                shape: BoxShape.circle,
-                color: Colors.white,
-                border: Border.all(
-                  color: Colors.grey[300]!,
-                  width: 4.0,
-                ),
-              ),
-              child: ClipOval(
-                child: Image(
-                  image: category.image,
-                  width: 100,
-                  height: 100,
-                  fit: BoxFit.cover,
-                ),
-              ),
-            ),
-            SizedBox(height: 12),
-            Text(
-              category.name,
-              style: TextStyle(
-                  fontSize: 16,
-                  color: Colors.white,
-                  fontWeight: FontWeight.bold),
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-}
 
-class CoursesPage extends StatelessWidget {
-  final Category category;
 
-  CoursesPage({required this.category});
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(category.name),
-      ),
-      body: Center(
-        child: Text('Courses for ${category.name} will be displayed here.',
-            style: TextStyle(fontSize: 18)),
-      ),
-    );
-  }
-}
