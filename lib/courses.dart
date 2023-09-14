@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'fivet0SevenLEsson.dart';
+import 'Eleventofifteenles.dart';
+import 'EighttoTenLesson.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -86,7 +88,7 @@ class MyApp extends StatelessWidget {
                         width: 90,
                         child: CircleAvatar(
                           backgroundImage: AssetImage(
-                            "assets/img_2.jpg",
+                            "assets/img_1.jpg",
                           ),
                           radius: 50, // Adjust the radius as needed
                         ),
@@ -98,7 +100,64 @@ class MyApp extends StatelessWidget {
                   fit: StackFit.loose,
                   clipBehavior: Clip.none,
                   children: [
-                    Container(
+                    InkWell(
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => eigtotenLevel()));
+                      },
+                      child: Container(
+                        height: 120,
+                        width: 145,
+                        decoration: BoxDecoration(
+                          color: Color(0xff960606),
+                          borderRadius: BorderRadius.circular(27),
+                          border:
+                              Border.all(color: Color(0xffffffff), width: 5),
+                        ),
+                        child: Center(
+                          child: Padding(
+                            padding: const EdgeInsets.only(top: 40),
+                            child: Text(
+                              "8-10 AGE",
+                              style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 24,
+                                  fontWeight: FontWeight.bold),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                    Positioned(
+                      top: -50,
+                      left: 25, // Adjust the left position as needed
+                      child: CircleAvatar(
+                        backgroundImage: AssetImage("assets/img_3.jpg"),
+                        radius: 50, // Adjust the radius as needed
+                      ),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+            SizedBox(
+              height: 60,
+            ),
+            Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
+              Stack(
+                fit: StackFit.loose,
+                clipBehavior: Clip.none,
+                children: [
+                  InkWell(
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => eigtotenLevel()));
+                    },
+                    child: Container(
                       height: 120,
                       width: 145,
                       decoration: BoxDecoration(
@@ -119,52 +178,12 @@ class MyApp extends StatelessWidget {
                         ),
                       ),
                     ),
-                    Positioned(
-                      top: -50,
-                      left: 25, // Adjust the left position as needed
-                      child: CircleAvatar(
-                        backgroundImage: AssetImage("assets/img_2.jpg"),
-                        radius: 50, // Adjust the radius as needed
-                      ),
-                    ),
-                  ],
-                ),
-              ],
-            ),
-            SizedBox(
-              height: 60,
-            ),
-            Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
-              Stack(
-                fit: StackFit.loose,
-                clipBehavior: Clip.none,
-                children: [
-                  Container(
-                    height: 120,
-                    width: 145,
-                    decoration: BoxDecoration(
-                      color: Color(0xff960606),
-                      borderRadius: BorderRadius.circular(27),
-                      border: Border.all(color: Color(0xffffffff), width: 5),
-                    ),
-                    child: Center(
-                      child: Padding(
-                        padding: const EdgeInsets.only(top: 40),
-                        child: Text(
-                          "8-10 AGE",
-                          style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 24,
-                              fontWeight: FontWeight.bold),
-                        ),
-                      ),
-                    ),
                   ),
                   Positioned(
                     top: -50,
                     left: 25, // Adjust the left position as needed
                     child: CircleAvatar(
-                      backgroundImage: AssetImage("assets/img_2.jpg"),
+                      backgroundImage: AssetImage("assets/img_4.jpg"),
                       radius: 50, // Adjust the radius as needed
                     ),
                   ),
@@ -174,23 +193,31 @@ class MyApp extends StatelessWidget {
                 fit: StackFit.loose,
                 clipBehavior: Clip.none,
                 children: [
-                  Container(
-                    height: 120,
-                    width: 145,
-                    decoration: BoxDecoration(
-                      color: Color(0xff960606),
-                      borderRadius: BorderRadius.circular(27),
-                      border: Border.all(color: Color(0xffffffff), width: 5),
-                    ),
-                    child: Center(
-                      child: Padding(
-                        padding: const EdgeInsets.only(top: 40),
-                        child: Text(
-                          "11-14 AGE",
-                          style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 24,
-                              fontWeight: FontWeight.bold),
+                  InkWell(
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => EleventofifteenLevel()));
+                    },
+                    child: Container(
+                      height: 120,
+                      width: 145,
+                      decoration: BoxDecoration(
+                        color: Color(0xff960606),
+                        borderRadius: BorderRadius.circular(27),
+                        border: Border.all(color: Color(0xffffffff), width: 5),
+                      ),
+                      child: Center(
+                        child: Padding(
+                          padding: const EdgeInsets.only(top: 40),
+                          child: Text(
+                            "11-14 AGE",
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 24,
+                                fontWeight: FontWeight.bold),
+                          ),
                         ),
                       ),
                     ),
@@ -199,7 +226,7 @@ class MyApp extends StatelessWidget {
                     top: -50,
                     left: 25, // Adjust the left position as needed
                     child: CircleAvatar(
-                      backgroundImage: AssetImage("assets/img_2.jpg"),
+                      backgroundImage: AssetImage("assets/img_5.jpg"),
                       radius: 50, // Adjust the radius as needed
                     ),
                   ),
@@ -236,7 +263,7 @@ class MyApp extends StatelessWidget {
                   top: -50,
                   left: 25, // Adjust the left position as needed
                   child: CircleAvatar(
-                    backgroundImage: AssetImage("assets/img_2.png"),
+                    backgroundImage: AssetImage("assets/img_5.png"),
                     radius: 50, // Adjust the radius as needed
                   ),
                 ),
