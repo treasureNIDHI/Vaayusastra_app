@@ -26,7 +26,7 @@ import 'dart:async';
 import 'package:vaayusastra_app/courses.dart'; // Import the dashboard page
 
 class Loading extends StatelessWidget {
-  const Loading({Key? key});
+  const Loading({super.key});
 
   @override
   Widget build(BuildContext context) {

@@ -56,8 +56,6 @@ class DashboardPage extends StatelessWidget {
         color: Colors.grey[200],
         padding: EdgeInsets.all(16),
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Container(
               alignment: Alignment.center,
@@ -91,28 +89,30 @@ class DashboardPage extends StatelessWidget {
             ),
             SizedBox(height: 14),
             Expanded(
-              child: GridView.builder(
-                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 2,
-                  mainAxisSpacing: 16,
-                  crossAxisSpacing: 16,
-                  childAspectRatio: 1.5,
+              child: SingleChildScrollView(
+                child: GridView.builder(
+                  shrinkWrap: true,
+                  physics: NeverScrollableScrollPhysics(),
+                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 2,
+                    childAspectRatio: 1.5,
+                  ),
+                  itemCount: categories.length,
+                  itemBuilder: (BuildContext context, int index) {
+                    return GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) =>
+                                CoursesPage(category: categories[index]),
+                          ),
+                        );
+                      },
+                      child: CategoryTile(category: categories[index]),
+                    );
+                  },
                 ),
-                itemCount: categories.length,
-                itemBuilder: (BuildContext context, int index) {
-                  return GestureDetector(
-                    onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) =>
-                              CoursesPage(category: categories[index]),
-                        ),
-                      );
-                    },
-                    child: CategoryTile(category: categories[index]),
-                  );
-                },
               ),
             ),
           ],
@@ -198,3 +198,10 @@ class CoursesPage extends StatelessWidget {
     );
   }
 }
+
+
+
+
+
+
+

@@ -140,7 +140,8 @@ class _ProfilePageState extends State<ProfilePage> {
     try {
       // Make an API request to fetch user profile data
       final token = await storage.read(key: 'jwt_token');
-      final url = Uri.parse('http://localhost:5555//userprofile'); // Corrected the URL
+      final url = Uri.parse('http://localhost:5555/userprofile/:userId'); // Corrected the URL
+      // final url = Uri.parse('http://localhost:5555/userprofile/${token}');
 
       final response = await http.get(
         url,
